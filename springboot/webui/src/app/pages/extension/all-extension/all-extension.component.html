@@ -1,0 +1,67 @@
+<div class="pad-16">
+    <h3>EXTENSION GRID VIEW</h3>
+    <button id="add" class="btn btn-primary" (click)="goToAdd()"><clr-icon shape="plus"></clr-icon>ADD</button>
+<br/>
+
+<clr-alert *ngIf="alertMessage" [clrAlertType]="alertType">
+    <clr-alert-item>
+        <span class="alert-text">
+            {{ alertMessage }}
+        </span>
+    </clr-alert-item>
+</clr-alert>
+
+    <ngx-datatable
+        #table
+        style='height:450px; width:100%;'
+        [rows]="rows"
+        [columns]="columns"
+        [columnMode]="'standard'"
+        [headerHeight]="45"
+        [footerHeight]="45"
+        [rowHeight]="36"
+        [scrollbarV]="true"
+    >
+
+    <ngx-datatable-column name="Actions" sortable="false" width="65">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <a (click)="goToReadOnly(row.id)"><clr-icon shape="eye" class="is-info"></clr-icon></a>
+            <a (click)="goToEdit(row.id)"><clr-icon shape="edit" class="is-error"></clr-icon></a>
+            </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column *ngFor="let col of columns" [name]="col.name" [prop]="col.prop" [width]="col.width" >
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Show In Grid" sortable="false" width="65">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <input type="checkbox" (click)="toggle(row.id)" [checked]="row.isActive"
+            [attr.id]="'e'+ row.id" clrToggle />
+            </ng-template>
+      </ngx-datatable-column>
+
+      
+
+    </ngx-datatable>
+</div>
+<!-- <ng-template #extById let-row="row" let-value="value" let-i="index">
+    <a (click)="goToReadOnly(value)" attr.data-itemid="{{value}}"><clr-icon shape="eye"  class="is-info"></clr-icon></a>
+    <a (click)="goToEdit(value)" attr.data-itemid="{{value}}"><clr-icon shape="edit" class="is-error"></clr-icon></a>
+  </ng-template> -->
+
+<!-- <ng-template #showInGrid let-row="row" let-value="value">
+    <div class="toggle-switch">
+         <input type="checkbox" 
+            [id]="row.id" 
+            (click)="toggle(row.id)" 
+            [checked]="row.isActive"/>
+         <label [for]="row.id"></label>
+    </div>
+ </ng-template> -->
+
+
+
+<button type="button" 
+    class="btn btn-primary"
+    [disabled]="extensionField.length > 0 ? false : true"
+    (click)="buildExtension()">BUILD</button>
+

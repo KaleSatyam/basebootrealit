@@ -1,0 +1,96 @@
+<div class="read-only-pg pad-16">
+    <h3>READ ONLY FORM <a (click)="goToWhoColumns()">
+        <clr-icon shape="help"  class="is-solid" size="32"></clr-icon>
+    </a></h3>
+
+    <clr-modal [(clrModalOpen)]="basic">
+        <h3 class="modal-title"><b>Transaction History</b></h3>
+        <div class="modal-body">
+            <table s-header>
+                <tr>
+                    <td><b>Account Id: </b></td>
+                    <td> {{ dynamicForm.accountId }} </td>
+                </tr>
+                <tr>
+                    <td><b>Created By: </b></td>
+                    <td> {{ dynamicForm.createdBy }} </td>
+                </tr>
+                <tr>
+                    <td><b>Created At: </b></td>
+                    <td> {{ dynamicForm.createdAt | date:'medium' }} </td>
+                </tr>
+                <tr>
+                    <td><b>Updated At: </b></td>
+                    <td> {{ dynamicForm.updatedAt | date:'medium' }} </td>
+                </tr>
+                <tr>
+                    <td><b>Updated By: </b></td>
+                    <td> {{ dynamicForm.updatedBy }} </td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
+        </div>
+    </clr-modal>
+    <!-- who column end -->
+
+    <!-- read only form start -->
+<table class="s-header">
+<tr>
+          <td>name </td>
+          <td> {{ dynamicForm.comp1 }} </td>
+      </tr>
+<tr>
+          <td>description </td>
+          <td> {{ dynamicForm.comp2 }} </td>
+      </tr>
+<tr>
+          <td>joining_date </td>
+          <td> {{ dynamicForm.comp3 }} </td>
+      </tr>
+<tr>
+          <td>country </td>
+          <td> {{ dynamicForm.comp4 }} </td>
+      </tr>
+<tr>
+          <td>status </td>
+          <td> {{ dynamicForm.comp5 }} </td>
+      </tr>
+<tr>
+          <td>worktype </td>
+          <td> {{ dynamicForm.comp6 }} </td>
+      </tr>
+<tr>
+          <td>profile_url </td>
+          <td> {{ dynamicForm.comp7 }} </td>
+      </tr>
+<tr>
+          <td>last name </td>
+          <td> {{ dynamicForm.comp8 }} </td>
+      </tr>
+<tr>
+          <td>phone number </td>
+          <td> {{ dynamicForm.comp9 }} </td>
+      </tr>
+<tr>
+          <td>price </td>
+          <td> {{ dynamicForm.comp10 }} </td>
+      </tr>
+<tr>
+          <td>email </td>
+          <td> {{ dynamicForm.comp11 }} </td>
+      </tr>
+<tr>
+          <td>password </td>
+          <td> {{ dynamicForm.comp12 }} </td>
+      </tr>
+  </table>
+
+<!-- read only form end -->
+    <button (click)="back()" class="btn btn-primary">
+        <clr-icon shape="caret left"></clr-icon>Back
+    </button>
+</div>

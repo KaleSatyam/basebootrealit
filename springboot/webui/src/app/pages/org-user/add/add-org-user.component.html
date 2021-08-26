@@ -1,0 +1,54 @@
+<div class="container">
+    <h3 class="center"><b>ADD USERS</b></h3>
+    <br />
+
+    <!-- entry form-->
+    <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+        <div class="clr-row">
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="firstName">First Name</label>
+                <input id="firstName" type="text" formControlName="firstName" placeholder="Enter First Name"
+                    class="clr-input">
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="email">Email</label>
+                <input id="email" type="text" formControlName="email" placeholder="Enter Email Address"
+                    class="clr-input">
+            </div>
+
+            <!--                 <tr>
+                    <td style="width:125px;">Last Name: </td>
+                    <td><input colspan="2" type="text" formControlName="lastName" placeholder="Enter Last Name"
+                        style="width:180px"></td>
+                </tr>
+                <tr>
+                    <td style="width:125px;">Full Name: </td>
+                        <td><input colspan="2" type="text" formControlName="fullName" placeholder="Enter Full Name"
+                            style="width:180px"></td>
+                       
+                </tr> -->
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="department">Depertment</label>
+                <input id="department" type="text" formControlName="department" placeholder="Enter Depertment"
+                    class="clr-input">
+            </div>
+
+            <!-- <tr>
+                    <td style="width:125px;">Menu Group </td>
+                    <td>
+                        <select colspan="2" type="text" formControlName="menu_group_id" style="width:180px">
+                            <option value="">Choose Type</option>
+                            <option *ngFor="let menu of menu_group" [ngValue]="menu.id">{{ menu_name }}</option>
+                        </select>
+                    
+                    </td>
+                </tr> -->
+        </div>
+        <br>
+        <div class="center">
+            <button type="submit" class="btn btn-primary" [disabled]="!entryForm.valid">SUBMIT</button>
+        </div>
+    </form>
+</div>

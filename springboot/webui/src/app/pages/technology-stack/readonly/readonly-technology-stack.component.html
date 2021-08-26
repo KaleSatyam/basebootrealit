@@ -1,0 +1,66 @@
+<div class="read-only-pg pad-16">
+  <h3>READ ONLY FORM <a (click)="goToWhoColumns()">
+      <clr-icon shape="help"  class="is-solid" size="32"></clr-icon>
+  </a></h3>
+  <!-- who column start -->
+
+
+  <clr-modal [(clrModalOpen)]="basic">
+    <h3 class="modal-title"><b>Transaction History</b></h3>
+    <div class="modal-body">
+      <table s-header>
+        <tr>
+          <td><b>Account Id: </b></td>
+          <td> {{ technology_stack.accountId }} </td>
+        </tr>
+        <tr>
+          <td><b>Created By: </b></td>
+          <td> {{ technology_stack.createdBy }} </td>
+        </tr>
+        <tr>
+          <td><b>Created At: </b></td>
+          <td> {{ technology_stack.createdAt | date:'medium' }} </td>
+        </tr>
+        <tr>
+          <td><b>Updated At: </b></td>
+          <td> {{ technology_stack.updatedAt | date:'medium' }} </td>
+        </tr>
+        <tr>
+          <td><b>Updated By: </b></td>
+          <td> {{ technology_stack.updatedBy }} </td>
+        </tr>
+      </table>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
+    </div>
+  </clr-modal>
+  <!-- who column end -->
+  <br />
+  <!-- read only form start -->
+  <table class="s-header">
+    <tr>
+      <td>Technology Stack </td>
+      <td>{{ technology_stack.tech_stack }}</td>
+    </tr>
+   
+    <tr>
+      <td>Technology Stack Key </td>
+      <td >{{ technology_stack.tech_stack_key }}</td>
+    </tr>
+    <tr>
+      <td>Base File Name </td>
+      <td >{{ technology_stack.base_prj_file_name }}</td>
+    </tr>
+    
+    <tr>
+      <td>Active Flag </td>
+      <td>{{ technology_stack.active }}</td>
+    </tr>
+  </table>
+    <button (click)="back()" class="btn btn-primary">
+      <clr-icon shape="caret left"></clr-icon>Back
+    </button>
+</div>

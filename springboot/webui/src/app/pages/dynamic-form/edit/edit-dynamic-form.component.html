@@ -1,0 +1,79 @@
+<div class="read-only-pg pad-16">
+  <h4>EDIT FORM</h4>
+  <br />
+  <div class="section">
+				   <p> DEMO</p>
+				</div>
+
+  <section class="form-block" style="margin-top:32px">
+      <form (ngSubmit)="onSubmit()">
+         <div class="clr-row">  
+<div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                  <td>name: </td>
+                  <td colspan="2"><input class="clr-input" type="text" name="comp1" [(ngModel)]="dynamicForm.comp1"  placeholder="Entername" /></td>
+              </div>
+<div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                  <label>description: </label>
+                  <textarea rows="4" cols="40"  clrTextarea    name="comp2" [(ngModel)]="dynamicForm.comp2"   placeholder="Enterdescription" 	>  </textarea>
+              </div>
+<div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <td style="width:125px;">joining_date</td>
+        <td style="width:125px;">dropme </td>
+                <input  class="clr-input" colspan="2" type="date" style="width: fit-content;" 
+                  name="comp3"    [(ngModel)]="dynamicForm.comp3"  />
+    </div> <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <td style="width:125px;">country</td>
+              <td>
+                <select style=" width:150px;" clrSelect name="options"  style="width: 25vh;" name="comp4"  [(ngModel)]="dynamicForm.comp4" >
+			<option *ngFor="let option of mydata " value={{option}}>{{option}}</option>
+                </select>
+              </td>
+            </div><div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <td style="width:125px;">status</td>
+        <td><input  type="checkbox" name="comp5" style="width:180px" [value]="selected"   [(ngModel)]="dynamicForm.comp5"  /></td>
+    </div> <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <td style="width:125px;">worktype</td>
+              <td>
+                <input type="checkbox" clrToggle name="comp6" style="width: fit-content;" 
+                [value]="toggle"   (change)="togglechange()"  [(ngModel)]="dynamicForm.comp6" />
+              </td>
+            </div> <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label>profile_url</label>
+              <td>
+                <input type="url"  name="comp7" style="width: fit-content;" 
+                   [(ngModel)]="dynamicForm.comp7" 	   class="clr-input"	 placeholder="https://www.facebook.com"	 />
+              </td>
+            </div><div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label>last name</label>
+              
+                <input type="text"  name="comp8" style="width: fit-content;" 
+                   [(ngModel)]="dynamicForm.comp8" 	autocomplete="name"   class="clr-input"	  placeholder="Enterlast name"	 />
+              
+            </div> <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <td style="width:125px;">phone number</td>
+              <td>
+                <input type="text"  name="comp9" style="width: fit-content;" 
+                   [(ngModel)]="dynamicForm.comp9" 	autocomplete="phone"    mask="(000) 000-0000"   class="clr-input"	 	 />
+              </td>
+            </div> <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label>price</label>
+              
+      <span style='font-size:25px;'>&#8377;</span>      <input type="number"   name="comp10" style="width: fit-content;" 
+                   [(ngModel)]="dynamicForm.comp10" 	    class="clr-input"			 placeholder="Enterprice"	 />  {{dynamicForm.comp10 |currency:'INR'}}              
+            </div> <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <td style="width:125px;">email</td>
+              <td>
+                <input type="email"  name="comp11" style="width: fit-content;" 
+                   [(ngModel)]="dynamicForm.comp11" 	   placeholder="Enter email"   class="clr-input"	pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 	 />
+              </td>
+            </div> <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <td style="width:125px;">password</td>
+              <td>
+            <input type="password"   name="comp12" style="width: fit-content;" 
+                   [(ngModel)]="dynamicForm.comp12" 	    placeholder="Enterpassword"   class="clr-input"		 />              </td>
+            </div> </div>
+          <br>
+          <button type="submit" form-control class="btn btn-primary">UPDATE</button>
+      </form>
+  </section>
+</div>

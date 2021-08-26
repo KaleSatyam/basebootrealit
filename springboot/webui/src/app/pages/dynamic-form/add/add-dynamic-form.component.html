@@ -1,0 +1,83 @@
+<div class="entry-pg pad-16">
+  <h4><b>ENTRY FORM</b></h4>
+
+  <br />
+ <div class="section">
+    <p> DEMO</p>
+</div>
+  <section class="form-block" style="margin-top:32px">
+	<!-- entry form-->
+      <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+          <div class="clr-row">
+        
+<div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                  <label>name: </label>
+                  
+                      <input class="clr-input"  	 style="width:fit-content;" 	colspan="2" type="text" formControlName="comp1"  placeholder="Entername" ></div>
+ <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label>description: </label>
+        <textarea		clrTextarea  cols="40" rows="4" 	 formControlName="comp2"     placeholder="Enterdescription"	></textarea>
+    </div>
+<div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label style="width:125px;">joining_date</label>
+                <input  class="clr-input" colspan="2" type="date" style="width: fit-content;" 
+                  formControlName="comp3" />
+    </div><div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label>country</label>
+        <select style=" width:150px;" clrSelect name="options"  style="width: 25vh;" formControlName="comp4"  >
+<option *ngFor="let option of mydata " value={{option}}>{{option}}</option>
+        </select>
+    </div><div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label style="width:125px;">status</label>
+        <input  type="checkbox" formControlName="comp5" style="width:180px" [value]="selected"   />
+    </div> <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label >worktype</label>
+            
+                <input type="checkbox" clrToggle formControlName="comp6" style="width: fit-content;" 
+                [value]="toggle"   />
+              
+            </div> <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label >profile_url</label>
+              
+                <input type="url"  style="width: fit-content;" autocomplete="url" 
+                formControlName="comp7"  [value]="url" [(ngModel)]="url"  placeholder="https://www.facebook.com"
+                    class="clr-input">
+             
+            </div>  <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label>last name</label>
+             
+               <input type="text" style="width: fit-content;" autocomplete="name"
+                formControlName="comp8" 		 placeholder="Enter  last name" 
+                   class="clr-input">
+             
+           </div> <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label>phone number</label>
+				
+              <input type="tel" mask="(000) 000-0000" style="width: fit-content;" 		 placeholder=" (9658746325) "  	class="clr-input" formControlName="comp9">
+            </div><div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label>price</label>
+
+<span style='font-size:25px;'>&#8377;</span> <input type="number" class="clr-input" [value]="currency " [(ngModel)]="currency" 		 placeholder="Enterprice" 	formControlName="comp10" style="width: fit-content;"/>
+         {{currency |currency:'INR'}}   
+          </div><div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label>email</label>
+			
+                <input 
+                 type="email" 
+                 style="width: fit-content;"
+                
+                formControlName="comp11" 
+                placeholder="Enter email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  	 placeholder="Enteremail"			
+                    class="clr-input">
+              </div><div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <label>password</label>
+
+ <input type="password" class="clr-input" 	 placeholder="Enterpassword"	   formControlName="comp12" style="width: fit-content;">
+              </div>
+</div>
+<br>
+          <button type="submit" class="btn btn-primary" [disabled]="!entryForm.valid">SUBMIT</button>
+      </form>
+  </section>
+</div>

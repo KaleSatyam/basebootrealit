@@ -1,0 +1,38 @@
+<div class="entry-pg pad-16">
+    <h3>ENTRY FORM</h3>
+    <br />
+    <section class="form-block" style="margin-top:32px">
+        <!-- entry form-->
+        <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+            <table>
+                <tr>
+                    <td style="width:125px;">First name: </td>
+                    <td><input colspan="2" type="text" formControlName="firstName" placeholder="Enter First Name"
+                            style="width:180px"></td>
+                </tr>
+                <tr>
+                    <td style="width:125px;">Last name: </td>
+                    <td><input colspan="2" type="text" formControlName="lastName" placeholder="Enter Last Name"
+                            style="width:180px"></td>
+                </tr>
+                <tr>
+                    <td style="width:125px;">Email: </td>
+                    <td><input colspan="2" type="text" formControlName="email" placeholder="Enter Email"
+                            style="width:180px"></td>
+                </tr>
+            </table>
+
+            <!--  <label for="firstName">First name:</label><br>
+            <input type="text" formControlName="firstName" placeholder="Enter First Name"><br>
+            
+            <label for="lastName">Last name:</label><br>
+            <input type="text" formControlName="lastName" placeholder="Enter Last Name"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="text" formControlName="email" placeholder="Enter Email"><br> -->
+            <br>
+            <button type="submit" class="btn btn-primary" [disabled]="!entryForm.valid">SUBMIT</button>
+        </form>
+    </section>
+
+</div>

@@ -1,0 +1,44 @@
+<div class="container">
+    <h3 class="center">EDIT FORM</h3>
+    <br />
+    <form (ngSubmit)="onSubmit()">
+        <div class="clr-row">
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="main_menu_name">Menu Name</label>
+                <input type="text" id="main_menu_name" name="main_menu_name" placeholder="Enter Menu Name"
+                    class="clr-input">
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="main_menu_action_name">Action Link</label>
+                <input type="text" id="main_menu_action_name" name="main_menu_action_name"
+                    [(ngModel)]="menu.main_menu_action_name" placeholder="Enter Action Link" class="clr-input">
+            </div>
+
+
+            <tr>
+                <td>Icon:</td>
+                <td colspan="2"><input type="text" name="main_menu_icon" [(ngModel)]="menu.main_menu_icon"> </td>
+            </tr>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="main_menu_icon">Icon</label>
+                <input id="main_menu_icon" type="text" name="main_menu_icon" placeholder="Enter icon"
+                    [(ngModel)]="menu.main_menu_icon" class="clr-input">
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="enable_flag" name="enable_flag" [(ngModel)]="menu.enable_flag" />
+                    <label for="enable_flag">Enable</label>
+                </div>
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="end_date">End Date</label>
+                <input id="end_date" type="date" name="end_date" [(ngModel)]="menu.end_date" clrDate class="clr-input">
+            </div>
+        </div>
+        <br>
+        <div class="center">
+            <button type="submit" form-control class="btn btn-primary">UPDATE</button>
+        </div>
+    </form>
+</div>

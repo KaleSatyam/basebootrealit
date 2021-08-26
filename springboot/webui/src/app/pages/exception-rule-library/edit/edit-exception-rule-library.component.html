@@ -1,0 +1,73 @@
+<div class="container">
+    <h3 style="text-align: center;"><b>EXCEPTION RULES EDIT FORM</b></h3>
+    <br />
+
+    <form (ngSubmit)="onSubmit()">
+        <div class="clr-row">
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="tech_stack">Technology Stack</label>
+                <select id="tech_stack" name="tech_stack" [(ngModel)]="exceptionRuleLibrary.tech_stack"
+                    class="clr-dropdown">
+                    <option value="null">Choose Technology</option>
+                    <option *ngFor="let ts of tech_stacks" [value]="ts">{{ ts }}
+                    </option>
+                </select>
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'tech_stack'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="object_type">Object Type</label>
+                <select id="object_type" name="object_type" [(ngModel)]="exceptionRuleLibrary.object_type"
+                    class="clr-dropdown">
+                    <option value="null">Choose Object Type</option>
+                    <option *ngFor="let ot of object_types" [value]="ot">{{ ot | uppercase }}
+                    </option>
+                </select>
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'object_type'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="sub_object_type">Sub Object Type</label>
+                <select id="sub_object_type" name="sub_object_type" [(ngModel)]="exceptionRuleLibrary.sub_object_type"
+                    class="clr-dropdown">
+                    <option value="null">Choose Sub Object Type</option>
+                    <option *ngFor="let sot of sub_object_types" [value]="sot">{{ sot | uppercase }}
+                    </option>
+                </select>
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'sub_object_type'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="object_name_variable">Object Name Variable</label>
+                <input id="object_name_variable" type="text" name="object_name_variable"
+                    [(ngModel)]="exceptionRuleLibrary.object_name_variable" placeholder="Enter Object Name Variable"
+                    class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'object_name_variable'" class="text text-danger">{{ item.message
+                        }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="object_name_dynamic_string">Object Name Dynamic String</label>
+                <input id="object_name_dynamic_string" type="text" name="object_name_dynamic_string"
+                    [(ngModel)]="exceptionRuleLibrary.object_name_dynamic_string"
+                    placeholder="Enter Object Name Dynamic String" class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'object_name_dynamic_string'" class="text text-danger">{{ item.message
+                        }}</span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="center">
+            <button type="submit" form-control class="btn btn-primary">UPDATE</button>
+        </div>
+    </form>
+</div>

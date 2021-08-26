@@ -1,0 +1,55 @@
+<div class="grid-pg  pad-16">
+    <h3>GRID VIEW</h3>
+    <button id="add" class="btn btn-primary" (click)="goToAdd()">
+
+        <clr-icon shape="plus"></clr-icon>ADD
+    </button>
+    <!-- <a ><img height="16px" width="16px" src="assets/images/who.png"/><clr-icon shape="help"></clr-icon></a> -->
+    <!-- <a id="who_column" (click)="goToWhoColumns()"><clr-icon shape="help"  class="is-solid" size="16"></clr-icon></a> -->
+
+    <!-- who column start -->
+
+    <!-- who column end -->
+
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div style="width:1140px">
+                <div class="s-info-bar">
+                    <!-- FILTER BUTTON-->
+                    <input type="text" style="padding:8px;margin:15px auto;width:30%;"
+                        placeholder="Type to filter the name column..." (keyup)="doFilter($event)" />
+                    <div style="flex:1"></div>
+                    <div *ngIf="isLoading" class="spinner spinner-md" style="margin:0 10px;">Loading...</div>
+                </div>
+                <ngx-datatable #table style='height:450px; width:100%;' [rows]="rows" [columnMode]="'force'"
+                    [columnMode]="'standard'" [headerHeight]="45" [footerHeight]="45" [rowHeight]="36"
+                    [scrollbarV]="true">
+                    <ngx-datatable-column name="Actions" sortable="false">
+                        <!-- //readonly action -->
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                            <a (click)="goToReadOnly(row.did)">
+                                <clr-icon shape="eye" class="is-info"></clr-icon>
+                            </a>
+                            <!-- uodate action -->
+                            <a (click)="goToEdit(row.did)">
+                                <clr-icon shape="edit" class="is-error"></clr-icon>
+                            </a>
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column *ngFor="let col of columns" [name]="col.name" [prop]="col.prop"
+                        [width]="col.width">
+                    </ngx-datatable-column>
+
+                    
+                        <!-- EXTENSION -->
+                        <teacher-grid-extension></teacher-grid-extension>
+                        <!-- EXTENSION -->
+
+
+                </ngx-datatable>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+<div class="read-only-pg pad-16">
+    <h3>READ ONLY FORM <a (click)="goToWhoColumns()">
+        <clr-icon shape="help"  class="is-solid" size="32"></clr-icon>
+    </a></h3>
+    
+    <clr-modal [(clrModalOpen)]="basic">
+        <h3 class="modal-title"><b>Transaction History</b></h3>
+        <div class="modal-body">
+            <table s-header>
+                <tr>
+                    <td><b>Account Id: </b></td>
+                    <td> {{ rn_froms_setup.accountId }} </td>
+                </tr>
+                <tr>
+                    <td><b>Created By: </b></td>
+                    <td> {{ rn_froms_setup.createdBy }} </td>
+                </tr>
+                <tr>
+                    <td><b>Created At: </b></td>
+                    <td> {{ rn_froms_setup.createdAt | date:'medium' }} </td>
+                </tr>
+                <tr>
+                    <td><b>Updated At: </b></td>
+                    <td> {{ rn_froms_setup.updatedAt | date:'medium' }} </td>
+                </tr>
+                <tr>
+                    <td><b>Updated By: </b></td>
+                    <td> {{ rn_froms_setup.updatedBy }} </td>
+                </tr>
+            </table>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
+        </div>
+    </clr-modal>
+    <!-- who column end -->
+
+    <!-- ALERT MESSAGE -->
+    <clr-alert *ngIf="alertMessage" [clrAlertType]="alertType">
+        <clr-alert-item>
+            <span class="alert-text">
+                {{ alertMessage }}
+            </span>
+        </clr-alert-item>
+    </clr-alert>
+    <!-- read only form start -->
+    <table class="s-header">
+        <tr>
+            <td>Form Name </td>
+            <td> {{ rn_froms_setup.form_name }} </td>
+        </tr>
+        <tr>
+            <td>Form Description </td>
+            <td> {{ rn_froms_setup.form_desc }} </td>
+        </tr>
+        <tr>
+            <td>Related To </td>
+            <td> {{ rn_froms_setup.related_to }} </td>
+        </tr>
+        <tr>
+            <td>Page Event </td>
+            <td> {{ rn_froms_setup.page_event }} </td>
+        </tr>
+        <tr>
+            <td>Button Caption </td>
+            <td> {{ rn_froms_setup.button_caption }} </td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="s-order-line table" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th class="left" style="width:200px;">Label</th>
+                        <th class="left" style="width:200px;">Type</th>
+                        <!-- <th class="left" style="width:200px;">Mandatory</th> -->
+                        <th class="left" style="width:200px;">Mapping</th>
+                        <th class="left" style="width:200px;">ReadOnly</th>
+                        <th class="left" style="width:200px;">Drop Values</th>
+                        <!-- <th class="left" style="width:200px;">SP</th> -->
+                        <!-- <th class="right" style="width:150px;">Created At</th>
+                        <th class="right" style="width:150px;">Updated At</th> -->
+                    </tr>
+                </thead>
+                <tbody *ngIf="rn_froms_setup.components">
+                    <tr *ngFor="let component of rn_froms_setup.components">
+                        <td class="left">{{ component.label }}</td>
+                        <td class="left">{{ component.type }}</td>
+                        <td class="left">{{ component.mapping }}</td>
+                        <!-- <td class="left">{{ component.mandatory }}</td> -->
+                        <td class="left">{{ component.readonly }}</td>
+                        <td class="left">{{ component.drop_values }}</td>
+                        <!-- <td class="left">{{ component.sp }}</td> -->
+
+                        <!-- <td class="right">{{ students.createdAt | date:'medium' }}</td>
+                        <td class="right">{{ students.updatedAt | date:'medium' }}</td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <!-- LINE CODE WILL INJECT HERE -->
+            <!-- <router-outlet></router-outlet> -->
+        </div>
+    </div>
+    <button (click)="back()" class="btn btn-primary">
+        <clr-icon shape="caret left"></clr-icon>Back
+    </button>
+    <button  (click)="buildDynamicForm()" class="btn btn-primary">
+        <clr-icon shape="pop-out"></clr-icon> Build
+    </button>
+    
+</div>

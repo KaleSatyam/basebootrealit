@@ -1,0 +1,106 @@
+<div class="container">
+    <h3 class="center">RULE LIBRARY EDIT FORM</h3>
+    <br />
+    <form (ngSubmit)="onSubmit()">
+        <div class="clr-row">
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="tech_stack">Technology Stack</label>
+                <select id="tech_stack" name="tech_stack" [(ngModel)]="ruleLibrary.tech_stack" class="clr-dropdown">
+                    <option value="null">Choose Technology</option>
+                    <option *ngFor="let ts of tech_stacks" [value]="ts">{{ ts }}
+                    </option>
+                </select>
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'tech_stack'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="object_type">Object Type</label>
+                <select id="object_type" name="object_type" [(ngModel)]="ruleLibrary.object_type" class="clr-dropdown">
+                    <option value="null">Choose Object Type</option>
+                    <option *ngFor="let ot of object_types" [value]="ot">{{ ot | uppercase }}
+                    </option>
+                </select>
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'object_type'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="sub_object_type">Sub Object Type</label>
+                <select id="sub_object_type" name="sub_object_type" [(ngModel)]="ruleLibrary.sub_object_type"
+                    class="clr-dropdown">
+                    <option value="null">Choose Sub Object Type</option>
+                    <option *ngFor="let sot of sub_object_types" [value]="sot">{{ sot | uppercase }}
+                    </option>
+                </select>
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'sub_object_type'" class="text text-danger">{{ item.message
+                        }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="rule_name">Rule Name</label>
+                <input id="rule_name" type="text" name="rule_name" [(ngModel)]="ruleLibrary.rule_name"
+                    placeholder="Enter Object Name Variable" class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'rule_name'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="file_code">File Code</label>
+                <input id="file_code" type="text" name="file_code" [(ngModel)]="ruleLibrary.file_code"
+                    placeholder="Enter File Code" class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'file_code'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="rule_type">Rule Type</label>
+                <input id="rule_type" type="text" name="rule_type" [(ngModel)]="ruleLibrary.rule_type"
+                    placeholder="Enter Rule Type" class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'rule_type'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="identifier_start_string">Identifier Starting String</label>
+                <input id="identifier_start_string" type="text" name="identifier_start_string"
+                    [(ngModel)]="ruleLibrary.identifier_start_string" placeholder="Enter Starting String"
+                    class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'identifier_start_string'" class="text text-danger">{{ item.message
+                        }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="identifier_end_string">Identifier Ending String</label>
+                <input id="identifier_end_string" type="text" name="identifier_end_string"
+                    [(ngModel)]="ruleLibrary.identifier_end_string" placeholder="Enter Ending String" class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'identifier_end_string'" class="text text-danger">{{ item.message
+                        }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="group_id">Group Id</label>
+                <input id="group_id" type="text" name="group_id" placeholder="Enter Group Id"
+                    [(ngModel)]="ruleLibrary.group_id" class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'group_id'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+        </div> <!-- ROW END -->
+
+        <div class="center">
+            <button type="submit" form-control class="btn btn-primary">UPDATE</button>
+        </div>
+    </form>
+</div>

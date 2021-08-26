@@ -1,0 +1,241 @@
+<div class="container">
+  <h3 class="center"><b>ENTRY FORM</b></h3>
+
+
+  <div>
+    <a style=" display: block;margin-left: 90%;" [routerLink]="['../../extension/all']">
+      <clr-icon shape="airplane" size="32"></clr-icon>
+    </a>
+  </div>
+
+
+  <!-- Header form start -->
+  <br />
+
+  <div class="section">
+    <p> Header </p>
+  </div>
+  <!-- entry form-->
+  <section>
+
+    <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+
+      <div class="clr-row" style="height: fit-content;">
+        <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+          <div> <label for="menu_name">sales Name</label></div>
+          <input id="menu_name" type="text" style="width: fit-content;" formControlName="sname" placeholder="Enter Name"
+            class="clr-input">
+        </div>
+        
+        <div class="clr-col-md-4 clr-col-sm-12">
+          <label for="description">department</label>
+          <input id="description" type="text" formControlName="department" placeholder="Enter department"
+            class="clr-input">
+        </div>
+
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+          <div><label for="menu_name">About</label></div>
+          <textarea id="menu_name" class="clr-textarea" style="width: fit-content;" formControlName="about" cols="50"
+            rows="3" placeholder="Enter about "></textarea>
+        </div> -->
+
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                <div><label for="description">department</label></div>
+            <select  id="select"     class="clr-dropdown" formControlName="department" >
+                <option  value="null">Choose ...</option>
+                <option value="medicine">medicine</option>
+                <option value="herbals">herbals</option>
+                <option value="beauty">beauty</option>
+              </select>
+            </div> -->
+
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="description">status</label>
+                <input id="description" type="text" formControlName="status" placeholder="Enter department"
+                    class="clr-input">
+            </div> -->
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                <div><label for="doj">joining Date</label></div>
+                <input id="doj"  type="date"  [(ngModel)]="date" class="clr-input"  (change)="datechange()"   formControlName="joiningDate" >
+            </div> -->
+
+
+
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                    <div><label > status</label></div>
+                  <input type="checkbox" clrToggle formControlName="status" 
+                   value="true "  />
+            </div> -->
+
+        <!-- 
+        <div class="clr-col-md-4 clr-col-sm-12">
+        <clr-combobox-container >
+            <label>Favorite States</label>
+            <clr-combobox [(ngModel)]="mydata.name" clrMulti="true"  [disabled]="disabled">
+              <ng-container *clrOptionSelected="let selected">
+                <clr-icon shape="house" [(ngModel)]="mydata.name" role="img" aria-label="welcome home"></clr-icon> 
+                {{selected?.name}}
+              </ng-container>
+              <clr-options>
+                <clr-option *clrOptionItems="let state of states;" [clrValue]="state">
+                   {{state.name}}
+                </clr-option>
+              </clr-options>
+            </clr-combobox>
+            <clr-control-helper>Helper text</clr-control-helper>
+            <clr-control-error>There was an error</clr-control-error>
+          </clr-combobox-container>
+        </div> -->
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+            <div><label>iscontractbase</label></div>
+            <input type="checkbox" clrCheckbox  formControlName="iscontractbase"
+            value="true" />
+        </div> -->
+
+
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+            <div><label>Contact no </label></div>
+        <input type="tel" mask="(000) 000-0000" style="width: fit-content;" class="clr-input" formControlName="contact_no">
+
+         </div> -->
+
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                <div><label for="menu_name">Country</label></div>
+                <input id="menu_name" type="text" style="width: 40vh;" style="width: fit-content;" autocomplete="on"
+                 formControlName="country" placeholder="Enter country"
+                    class="clr-input">
+            </div> -->
+
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                <div><label for="menu_name">Userurl</label></div>
+                <input id="menu_name" type="url" style="width: 40vh;" style="width: fit-content;" autocomplete="on" 
+                formControlName="userUrl" placeholder="https://www.facebook.com"
+                    class="clr-input">
+            </div> -->
+
+
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                <div><label>currency</label></div>
+            
+        <span style='font-size:25px;'>&#8377;</span> <input type="number" class="clr-input" 
+        		 placeholder="Enter  currency" 	formControlName="currency" style="width: fit-content;"/>
+               
+                  </div> -->
+
+
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                 <div><label for="pass">password</label></div>
+            
+                  
+                        <input type="password"  id="pass" placeholder="Password" 
+                        name="password" 
+                       style="width: fit-content;"
+                         formControlName="password"
+                         class="clr-input"
+                           />
+            </div> -->
+
+        <!-- <input id="menu_name" type="password" style="width: 40vh;" style="width: fit-content;"
+                formControlName="password" placeholder="Enter password"
+                    class="clr-input"> -->
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+               <div> <label for="menu_name">email</label></div>
+                <input id="menu_name" type="email"  style="width: fit-content;"
+                formControlName="email" placeholder="Enter email"
+                    class="clr-input">
+            </div> -->
+
+        <!-- <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="menu_name">uploadprofile</label>
+                <input id="menu_name" type="file"  style="width: fit-content;"
+                formControlName="uploadprofile" >
+            </div> -->
+
+        <!-- EXTENSION FIELDS START -->
+        <teacher-add-extension [extensionForm]="entryForm"></teacher-add-extension>
+        <!-- EXTENSION FIELDS END-->
+
+      </div>
+      <br>
+
+
+      <div class="section">
+        <p> Lines Details</p>
+      </div>
+
+
+      <div class="clr-row">
+        <div class="clr-col-lg-12">
+          <table class="table" style="width:100%;" formArrayName="salesperson">
+            <thead>
+              <tr>
+                <!-- <th class="left" style="width:125px;">Name</th> -->
+
+                <th class="left" style="width:125px;">sales person Name</th>
+
+                <!-- <th class="left" style="width:125px;">sales person Name</th> -->
+
+                <!-- <th class="left" style="width:125px;">sales person Name</th> -->
+                <!-- <th class="left" style="width:125px;">sales person Name</th> -->
+                <!-- <th class="left" style="width:125px;">sales person Name</th> -->
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of controls; let i=index" [formGroupName]="i">
+                  
+                <!-- <td class="left">
+                  <input type="text" formControlName="name" class="clr-input" placeholder="Enter Name">
+                </td> -->
+
+                <td class="left">
+                  <input colspan="2" type="text" formControlName="pname" class="clr-input" placeholder="Enter name" />
+                </td>
+
+                <!-- <td class="left">
+                  <input colspan="2" type="text" formControlName="pname" class="clr-input" placeholder="Enter name" />
+                </td>
+
+                <td class="left">
+                  <input colspan="2" type="text" formControlName="pname" class="clr-input" placeholder="Enter name" />
+                </td>
+
+                <td class="left">
+                  <input colspan="2" type="text" formControlName="pname" class="clr-input" placeholder="Enter name" />
+                </td>
+
+                <td class="left">
+                  <input colspan="2" type="text" formControlName="pname" class="clr-input" placeholder="Enter name" />
+                </td> -->
+
+                <td style="width:40px;">
+                  <a *ngIf="controls.length > 1" (click)="onRemoveLines(i)">
+                    <clr-icon shape="trash" class="is-error"></clr-icon>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+            <button type="button" class="btn btn-primary button1" (click)="onAddLines()">
+              <clr-icon shape="plus"></clr-icon>
+            </button>
+          </table>
+        </div>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary" [disabled]="!entryForm.valid">SUBMIT</button>
+    </form>
+
+  </section>
+</div>

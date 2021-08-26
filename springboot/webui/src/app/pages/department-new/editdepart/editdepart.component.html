@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="section">
+        <p> Edit form </p>
+    </div>
+    <br />
+    <form (ngSubmit)="onSubmit()">
+        <div class="clr-row">
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label >dname</label>
+                <input type="text" [(ngModel)]="depart.dname" id="main_menu_name" name="dname"  placeholder="Enter Name" class="clr-input">
+                    <br>
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label >Dhead</label>
+                <input type="text" id="main_menu_action_name" name="dhead"  class="clr-input" [(ngModel)]="depart.dhead"
+                    placeholder="Enter " class="clr-input">
+                    <br>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label >Contact no</label>
+                <input class="clr-input" id="main_menu_icon" type="number"  class="clr-input" name="dcontact" [(ngModel)]="depart.dcontact" >
+                <br>
+            </div>
+                <br>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label >Employees </label>
+                <input id="main_menu_icon" type="number" name="no_ofEmp"  class="clr-input" placeholder="Enter icon"
+                    [(ngModel)]="depart.no_ofEmp" class="clr-input">
+                    <br>
+            </div>
+        </div>
+        <br>
+        <div class="clr-row">
+            
+            <teacher-edit-extension [(teacherExtension)]="depart"></teacher-edit-extension>
+        </div>
+        <button type="submit" form-control class="btn btn-primary">UPDATE</button>
+    </form>
+</div>

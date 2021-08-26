@@ -1,0 +1,144 @@
+<div class="container">
+  <div class="section" style="width: fit-content;">
+    <p>EDIT FORM</p>
+  </div>
+  <br>
+  <form (ngSubmit)="onSubmit()">
+    <div class="clr-row">
+      <div class="clr-col-md-4 clr-col-sm-12">
+        <div><label for="main_menu_name">sname</label></div>
+        <input type="text" [(ngModel)]="sales.sname" id="main_menu_name" name="sname" placeholder="Enter Name"
+          class="clr-input">
+      </div>
+
+      <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+        <div><label for="menu_name">About</label></div>
+        <textarea id="menu_name" class="clr-textarea" style="width: fit-content;" name="about" [(ngModel)]="sales.about"
+          cols="50" rows="3" placeholder="Enter about "></textarea>
+      </div>
+
+
+      <!-- <div class="clr-col-md-4 clr-col-sm-12">
+               <div> <label >department</label></div>
+               <select  id="select"  name="department"    class="clr-dropdown" [(ngModel)]="sales.department"  >
+                <option  value="null">Choose ...</option>
+                <option value="medicine">medicine</option>
+                <option value="herbals">herbals</option>
+                <option value="beauty">beauty</option>
+              </select>
+            </div>
+           
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+               <div> <label >joining Date</label></div>
+                <input  type="date" [(ngModel)]="sales.joiningDate" class="clr-input" >
+            </div>
+        
+            <div class="clr-col-md-4 clr-col-sm-12">
+               <div> <label for="main_menu_icon">status</label></div>
+                <input id="main_menu_icon" type="checkbox"    [value]="sales.status"  name="status" clrToggle  [(ngModel)]="sales.status" class="clr-input">
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+               <div> <label for="main_menu_icon">clrCheckbox</label></div>
+                <input id="main_menu_icon" type="checkbox" clrCheckbox  [value]="sales.iscontractbase"  name="iscontractbase"   [(ngModel)]="sales.iscontractbase" class="clr-input">
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                <div><label>Contact no </label></div>
+            <input type="tel" mask="(000) 000-0000" style="width: fit-content;" class="clr-input" name="contact_no"   [(ngModel)]="sales.contact_no">
+    
+             </div>
+
+
+             <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                <div><label for="menu_name">Country</label></div>
+                <input id="menu_name" type="text" style="width: 40vh;" style="width: fit-content;" autocomplete="on"
+                name="country"   [(ngModel)]="sales.country" placeholder="Enter country"
+                    class="clr-input">
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                <div><label for="menu_name">Userurl</label></div>
+                <input id="menu_name" type="url" style="width: 40vh;" style="width: fit-content;" autocomplete="on" 
+                name="userUrl"   [(ngModel)]="sales.userUrl" placeholder="https://www.facebook.com"
+                    class="clr-input">
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+               <div> <label>currency</label></div>
+            
+        <span style='font-size:25px;'>&#8377;</span> <input type="number" class="clr-input" 
+        		 placeholder="Enter  currency"  name="currency"   [(ngModel)]="sales.currency" style="width: fit-content;"/>
+               
+                  </div>
+
+                  <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+                    
+                    <div><label for="pass">password</label></div>
+                     
+                           <input type="password"  id="pass" placeholder="Password" 
+                           name="password" 
+                          style="width: fit-content;"
+                          name="password"   [(ngModel)]="sales.password"
+                            class="clr-input" />
+                        
+               </div>
+
+               <div class="clr-col-md-4 clr-col-sm-12" style="margin-bottom: 20px;">
+               <div> <label for="menu_name">email</label></div>
+                <input id="menu_name" type="email"  style="width: fit-content;"
+               name="email"   [(ngModel)]="sales.email" placeholder="Enter email"
+                    class="clr-input">
+            </div> -->
+
+
+    </div>
+    <br>
+    <div class="center">
+      <teacher-edit-extension [teacherExtension]="sales"></teacher-edit-extension>
+    </div>
+
+
+    <div class="section" style="width: fit-content;">
+      <p>Menu Group Lines Details</p>
+    </div>
+
+    <!-----H-L LINE part(FormArray For Multiple Lines)---->
+
+    <div class="clr-row">
+      <div class="clr-col-lg-12">
+        <table id="lines" class="table" style="width:100%;">
+          <thead>
+            <tr>
+              <th class="left" style="width:125px;">Name</th>
+              <th class="left" style="width:125px;">Name</th>
+              <th class="left" style="width:125px;">Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let person of salesperson">
+              <td class="left">
+                <input colspan="2" type="text" [(ngModel)]="person.pname" name="first" placeholder="Enter Name"
+                  class="clr-input" />
+              </td>
+              <td class="left">
+                <input colspan="2" type="text" [(ngModel)]="person.pname" name="first" placeholder="Enter Name"
+                  class="clr-input" />
+              </td>
+              <td class="left">
+                <input colspan="2" type="text" [(ngModel)]="person.pname" name="first" placeholder="Enter Name"
+                  class="clr-input" />
+              </td>
+
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+
+    <button type="submit" form-control class="btn btn-primary">UPDATE</button>
+  </form>
+</div>

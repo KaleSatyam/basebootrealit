@@ -1,0 +1,71 @@
+<div class="container">
+    <h3 class="center"><b>FUNCTON REGISTER ENTRY FORM</b></h3>
+    <!-- header form start -->
+    <br />
+    <!-- entry form-->
+    <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+        <div class="clr-row">
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="function_name">Function Name</label>
+                <input id="function_name" type="text" formControlName="function_name" placeholder="Enter Function Name"
+                    class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'function_name'" class="text text-danger">{{ item.message
+                        }}</span>
+                </div>
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="function_action_name">Action Link</label>
+                <input id="function_action_name" type="text" formControlName="function_action_name"
+                    placeholder="Enter Action Link" class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'function_action_name'" class="text text-danger">{{ item.message
+                        }}</span>
+                </div>
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="function_icon">Icon</label>
+                <input id="function_icon" type="text" formControlName="function_icon" placeholder="Enter icon"
+                    class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'function_icon'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="actionType1">Enable</label>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="enable_flag" formControlName="enable_flag" />
+                    <label for="enable_flag"></label>
+                    <div *ngFor="let item of errorMsg">
+                        <span *ngIf="item.field === 'enable_flag'" class="text text-danger">{{ item.message }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="end_date">End Dte</label>
+                <input id="end_date" type="date" formControlName="end_date" clrDate class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'end_date'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="menu_id">Select Menu</label>
+                <select id="menu_id" formControlName="menu_id" selected="null" class="clr-dropdown">
+                    <option value="null">Choose Type</option>
+                    <option *ngFor="let menu of menuDropDown" [ngValue]="menu.id">{{ menu.name }}</option>
+                </select>
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'menu_id'" class="text text-danger">{{ item.message }}</span>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <div class="center">
+            <button type="submit" class="btn btn-primary" [disabled]="!entryForm.valid">SUBMIT</button>
+        </div>
+
+    </form>
+
+</div>

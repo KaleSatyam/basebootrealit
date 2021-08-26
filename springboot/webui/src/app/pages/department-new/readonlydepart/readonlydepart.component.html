@@ -1,0 +1,75 @@
+<div class="read-only-pg pad-16">
+    <h3>READ ONLY FORM
+        <a (click)="goToWhoColumns()">
+            <clr-icon shape="help"  class="is-solid" size="32"></clr-icon>
+        </a>
+    </h3>
+    <br />
+        <!-- whoo column -->
+    <clr-modal [(clrModalOpen)]="basic">
+        <h3 class="modal-title"><b>Transaction History</b></h3>
+        <div class="modal-body">
+            <table s-header>
+                <tr>
+                    <td>AccountId</td>
+                    <td> {{department.accountId}}</td>
+                </tr>
+                <tr>
+                    <td>CreatedAt </td>
+                    <td> {{department.createdAt}} </td>
+                </tr>
+                <tr>
+                    <td>CreatedBy </td>
+                    <td> {{department.createdBy}} </td>
+                </tr>
+                <tr>
+                    <td>UpdatedAt </td>
+                    <td> {{department.updatedAt}} </td>
+                </tr>
+                <tr>
+                    <td>UpdatedBy </td>
+                    <td> {{department.updatedBy}} </td>
+                </tr>
+            </table>
+        
+        </div>
+    </clr-modal>
+   
+
+        <!-- fields start -->
+
+    <br />
+    <table class="s-header">
+        <tr>
+            <td style="width:125px">D_Id</td>
+            <td> {{department.did}}</td>
+        </tr>
+        <tr>
+            <td>D_Name </td>
+            <td> {{department.dname}} </td>
+        </tr>
+        <tr>
+            <td>D_head </td>
+            <td> {{department.dhead}} </td>
+        </tr>
+        <tr>
+            <td>D_contact </td>
+            <td> {{department.dcontact }} </td>
+        </tr>
+        <tr>
+            <td>No.of_Emp </td>
+            <td> {{department.no_ofEmp}} </td>
+        </tr>
+
+    </table>
+
+        <!-- EXTENSION FIELDS START -->
+     <teacher-readonly-extension [teacherExtension]="department"></teacher-readonly-extension>
+     <!-- EXTENSION FIELDS END-->
+
+
+    <br />
+    <button (click)="back()" class="btn btn-primary">
+        <clr-icon shape="caret left"></clr-icon>Back
+    </button>
+   </div>

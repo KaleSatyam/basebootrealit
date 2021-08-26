@@ -1,0 +1,66 @@
+<div class="container">
+    <h3><b>MENU REGISTER ENTRY FORM</b></h3>
+    <!-- header form start -->
+    <br />
+
+
+    <!-- entry form-->
+    <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+        <div class="clr-row">
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="main_menu_name">Menu Name</label>
+                <input id="main_menu_name" type="text" formControlName="main_menu_name" placeholder="Enter Menu Name"
+                    class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'main_menu_name'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="main_menu_action_name">Action Link</label>
+                <input id="main_menu_action_name" type="text" formControlName="main_menu_action_name"
+                    placeholder="Enter Action Link" class="clr-input">
+
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'main_menu_action_name'" class="text text-danger">{{ item.message
+                        }}</span>
+                </div>
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="main_menu_icon">Icon</label>
+                <input id="main_menu_icon" type="text" formControlName="main_menu_icon" placeholder="Enter icon"
+                    class="clr-input">
+
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'main_menu_icon'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+
+
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="enable_flag" formControlName="enable_flag" />
+                    <label for="enable_flag">Enable</label>
+                </div>
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'enable_flag'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="end_date">End Date</label>
+                <input id="end_date" type="date" formControlName="end_date" clrDate class="clr-input">
+                <div *ngFor="let item of errorMsg">
+                    <span *ngIf="item.field === 'end_date'" class="text text-danger">{{ item.message }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <button type="submit" class="btn btn-primary" [disabled]="!entryForm.valid">SUBMIT</button>
+        </div>
+    </form>
+
+
+</div>

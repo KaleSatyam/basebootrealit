@@ -1,0 +1,118 @@
+<div class="container">
+    <h3 class="center"><b>MENU GROUP ENTRY FORM</b></h3>
+
+    <!-- Header form start -->
+    <br />
+
+    <div class="section">
+        <p> Menu Group Header </p>
+    </div>
+    <!-- entry form-->
+    <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+        <div class="clr-row">
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="menu_name">Menu Name</label>
+                <input id="menu_name" type="text" formControlName="menu_name" placeholder="Enter Menu Name"
+                    class="clr-input">
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="description">Menu Description</label>
+                <input id="description" type="text" formControlName="description" placeholder="Enter Menu Description"
+                    class="clr-input">
+            </div>
+
+
+
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <!-- <div class="toggle-switch"> -->
+                    <input type="checkbox" id="active" formControlName="active" clrToggle  />
+                    <label for="active">Status</label>
+                <!-- </div> -->
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="start_date">Start Date</label>
+                <input id="start_date" type="date" formControlName="start_date" clrDate class="clr-input">
+            </div>
+            <div class="clr-col-md-4 clr-col-sm-12">
+                <label for="end_date">End Date</label>
+                <input id="end_date" type="date" formControlName="end_date" clrDate class="clr-input">
+            </div>
+        </div>
+        <br>
+
+        <div class="section">
+            <p> Menu Group Lines Details</p>
+        </div>
+        <!-----H-L LINE part(FormArray For Multiple Lines)---->
+        <div class="clr-row">
+            <div class="clr-col-lg-12">
+                <table class="table" style="width:100%;" formArrayName="menu_group_lines">
+                    <thead>
+                        <tr>
+                            <!-- <th class="left" style="width:125px;">Name</th> -->
+                            <th class="left" style="width:125px;">Type</th>
+                            <th class="left" style="width:125px;">Menu Name</th>
+                            <th class="left" style="width:125px;">Active</th>
+                            <!-- <th class="left" style="width:125px;">Start Date</th>
+                                <th class="left" style="width:125px;">End Date</th> -->
+                            <th class="left" style="width:125px;">Order</th>
+                            <th class="right" style="width:125px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of controls; let i=index" [formGroupName]="i">
+                            <!-- <td class="left">
+                                    <input type="text" formControlName="name" placeholder="Enter Name"
+                                        style="width:180px">
+                                </td> -->
+                            <td class="left">
+                                <select colspan="2" formControlName="type" class="clr-dropdown">
+                                    <option value="">Choose Type</option>
+                                    <option *ngFor="let type of types" [ngValue]="type">{{ type | uppercase }}
+                                    </option>
+                                </select>
+                            </td>
+                            <td class="left">
+                                <select colspan="2" formControlName="menu_id" class="clr-input">
+                                    <option value="">Choose Menu</option>
+                                    <option *ngFor="let menu of menuDropDown" [ngValue]="menu.id">{{ menu.name }}
+                                    </option>
+                                </select>
+                            </td>
+                            <td class="left">
+                                <div class="toggle-switch">
+                                    <input type="checkbox" [attr.id]="'active' + i" formControlName="active" />
+                                    <label [attr.for]="'active' + i">Active</label>
+                                </div>
+                            </td>
+                            <!-- <td>
+                                    <input colspan="2" type="date" formControlName="start_date" style="width:180px"
+                                        clrDate />
+                                </td>
+                                <td>
+                                    <input colspan="2" type="date" formControlName="end_date" style="width:180px"
+                                        clrDate />
+                                </td> -->
+                            <td>
+                                <input colspan="2" type="number" formControlName="seq" class="clr-input"
+                                    placeholder="Enter Order" />
+                            </td>
+                            <td style="width:40px;">
+                                <a *ngIf="controls.length > 1" (click)="onRemoveLines(i)">
+                                    <clr-icon shape="trash" class="is-error"></clr-icon>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <button type="button" class="btn btn-primary button1" (click)="onAddLines()">
+                        <clr-icon shape="plus"></clr-icon>
+                    </button>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="center">
+            <button type="submit" class="btn btn-primary" [disabled]="!entryForm.valid">SUBMIT</button>
+        </div>
+    </form>
+</div>

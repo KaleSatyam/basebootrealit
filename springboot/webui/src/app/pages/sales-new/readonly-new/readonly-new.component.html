@@ -1,0 +1,100 @@
+<div class="read-only-pg pad-16">
+  <h3>READ ONLY FORM
+    <a (click)="goToWhoColumns()">
+      <clr-icon shape="help" class="is-solid" size="32"></clr-icon>
+    </a>
+  </h3>
+  <br />
+  <!-- whoo column -->
+
+  <clr-modal [(clrModalOpen)]="basic">
+    <h3 class="modal-title"><b>Transaction History</b></h3>
+    <div class="modal-body">
+        <table s-header>
+            <tr>
+                <td>AccountId</td>
+                <td> {{sales.accountId}}</td>
+            </tr>
+            <tr>
+                <td>CreatedAt </td>
+                <td> {{sales.createdAt}} </td>
+            </tr>
+            <tr>
+                <td>CreatedBy </td>
+                <td> {{sales.createdBy}} </td>
+            </tr>
+            <tr>
+                <td>UpdatedAt </td>
+                <td> {{sales.updatedAt}} </td>
+            </tr>
+            <tr>
+                <td>UpdatedBy </td>
+                <td> {{sales.updatedBy}} </td>
+            </tr>
+        </table>
+    
+    </div>
+</clr-modal>
+
+  <!-- <clr-tabs>
+        <clr-tab> -->
+  <!-- <clr-tab-content> -->
+  <br />
+  <table class="s-header">
+    <tr>
+      <td style="width:125px">sId</td>
+      <td> {{sales.sid}}</td>
+    </tr>
+    <tr>
+      <td>Name </td>
+      <td> {{sales.sname}} </td>
+    </tr>
+    <tr>
+      <td>Depertment </td>
+      <td> {{sales.department}} </td>
+    </tr>
+    <tr>
+      <td>Joining Date </td>
+      <td> {{sales.joiningDate | date }} </td>
+    </tr>
+    <tr>
+      <td>Status </td>
+      <td> {{sales.status}} </td>
+    </tr>
+
+  </table>
+
+  <!-- EXTENSION FIELDS START -->
+  <teacher-readonly-extension [teacherExtension]="sales"></teacher-readonly-extension>
+  <!-- EXTENSION FIELDS END-->
+
+  <br />
+  <button (click)="back()" class="btn btn-primary">
+    <clr-icon shape="caret left"></clr-icon>Back
+  </button>
+</div>
+
+
+<!-- line form satrt -->
+<div class="row">
+  <div class="col-lg-12">
+    <table class="s-order-line table" style="width:100%;">
+      <thead>
+        <tr>
+          <th class="left" style="width:200px;">S_person id </th>
+          <th class="left" style="width:200px;">S_person name</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="sales.salesperson">
+        <tr *ngFor="let salesperson of sales.salesperson">
+          <td class="left">{{ salesperson.pid }}</td>
+          <td class="left">{{ salesperson.pname }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button (click)="back()" class="btn btn-primary">
+    <clr-icon shape="caret left"></clr-icon>Back
+  </button>
+</div>

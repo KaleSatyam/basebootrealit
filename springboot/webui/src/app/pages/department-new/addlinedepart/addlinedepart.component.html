@@ -1,0 +1,143 @@
+<div class="container">
+    <h3 class="center"><b>LINE ONLY ENTRY FORM</b>
+    </h3>
+
+    <div>
+        <a style=" display: block;margin-left: 90%;" [routerLink]="['../../extension/all']">
+            <clr-icon shape="airplane" size="32"></clr-icon>
+        </a>
+    </div>
+
+    <!-- Header form start -->
+    <br />
+
+    <div class="section">
+        <p> Header </p>
+    </div>
+    <!-- entry form-->
+    <section>
+
+        <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+            <div class="clr-row" >
+                <div class="clr-col-lg-12">
+                    <table class="table" style="width:1100%;" formArrayName="department">
+                        <thead>
+                            <tr>
+
+
+                                <th class="left" style="width:125px;">Dname</th>
+                                <th class="left" style="width:125px;">Dhead</th>
+                                <th class="left" style="width:125px;">Dcontact</th>
+                                <th class="left" style="width:125px;">No_ofEmp</th>
+                            
+                               
+                                <app-headerext ></app-headerext>
+                                
+                                <th class="right" style="width:125px;">{{ controls.length > 1 ? 'Actions' : '' }}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of controls; let i=index" [formGroupName]="i">
+
+                                <td class="left">
+
+                                    <input colspan="2" type="text" formControlName="dname" class="clr-input"
+                                        placeholder="Enter name" />
+                                </td>
+
+                                <td class="left">
+
+                                    <input colspan="2" type="text" formControlName="dhead" class="clr-input"
+                                        placeholder="Enter name" />
+                                </td>
+
+                                <td class="left">
+
+                                    <input colspan="2" type="number" formControlName="dcontact" class="clr-input"
+                                        placeholder="Enter contactno" />
+                                </td>
+
+                                <td class="left">
+
+                                    <input colspan="2" type="number" formControlName="no_ofEmp" class="clr-input"
+                                        placeholder="Enter no of emp" />
+                                </td>
+
+                                
+
+
+                                <app-extfields [entryForm]="entryForm"></app-extfields>
+                                 <!-- EXTENSION FIELDS START  -->
+                                 <!-- <teacher-add-extension [extensionForm]="extention"></teacher-add-extension> -->
+                                 <!-- EXTENSION FIELDS END -->
+                                
+                
+                                  <td >
+                                    <a *ngIf="controls.length > 1" (click)="onRemoveLines(i)">
+                                        <clr-icon shape="trash" class="is-error"></clr-icon>
+                                    </a>
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                        <button type="button" class="btn btn-primary button1" (click)="onAddLines()">
+                            <clr-icon shape="plus"></clr-icon>
+                        </button>
+                    </table> 
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                    <!-- <div  formArrayName="department">
+                        <div class="clr-row" *ngFor="let item of controls; let i=index" [formGroupName]="i">
+                            <div class="clr-col-md-2 clr-col-sm-12"  > <label for=""> Dname</label> 
+                                <input colspan="2" type="text" formControlName="dname" class="clr-input"
+                                        placeholder="Enter name" />
+                            </div>
+
+                            <div class="clr-col-md-2 clr-col-sm-12"  > <label for=""> Dhead</label> 
+                                <input colspan="2" type="text" formControlName="extn1" class="clr-input"
+                                placeholder="Enter name" />
+                            </div> -->
+
+                           
+
+                                <!-- <teacher-add-extension [extensionForm]="extention"></teacher-add-extension> -->
+                            
+
+
+                            <!-- <div class="clr-col-md-2 clr-col-sm-12"  >
+                            <a *ngIf="controls.length > 1" (click)="onRemoveLines(i)">
+                                <clr-icon shape="trash" class="is-error"></clr-icon>
+                            </a>
+                        </div>
+
+
+
+
+                        </div>
+
+                        <button type="button" class="btn btn-primary button1" (click)="onAddLines()">
+                            <clr-icon shape="plus"></clr-icon>
+                        </button>
+
+                    </div>
+                -->
+                
+                
+                </div>
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-primary" [disabled]="!entryForm.valid">SUBMIT</button>
+        </form>
+    </section>
+</div>

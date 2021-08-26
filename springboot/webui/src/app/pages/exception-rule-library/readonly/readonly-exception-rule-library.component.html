@@ -1,0 +1,67 @@
+<div class="read-only-pg pad-16">
+  <h3>READ ONLY FORM <a (click)="goToWhoColumns()">
+      <clr-icon shape="help"  class="is-solid" size="32"></clr-icon>
+  </a></h3>
+
+    <clr-modal [(clrModalOpen)]="basic">
+      <h3 class="modal-title"><b>Transaction History</b></h3>
+      <div class="modal-body">
+        <table s-header>
+          <tr>
+            <td><b>Account Id: </b></td>
+            <td> {{ exceptionRuleLibrary.accountId }} </td>
+          </tr>
+          <tr>
+            <td><b>Created By: </b></td>
+            <td> {{ exceptionRuleLibrary.createdBy }} </td>
+          </tr>
+          <tr>
+            <td><b>Created At: </b></td>
+            <td> {{ exceptionRuleLibrary.createdAt | date:'medium' }} </td>
+          </tr>
+          <tr>
+            <td><b>Updated At: </b></td>
+            <td> {{ exceptionRuleLibrary.updatedAt | date:'medium' }} </td>
+          </tr>
+          <tr>
+            <td><b>Updated By: </b></td>
+            <td> {{ exceptionRuleLibrary.updatedBy }} </td>
+          </tr>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
+      </div>
+    </clr-modal>
+    <!-- who column end -->
+
+    <!-- read only form start -->
+    <table class="s-header">
+      <tr>
+        <td>Technology Stack: </td>
+        <td> {{ exceptionRuleLibrary.tech_stack }} </td>
+      </tr>
+      <tr>
+        <td>Object Type: </td>
+        <td> {{ exceptionRuleLibrary.object_type }} </td>
+      </tr>
+      <tr>
+        <td>Sub Object Type: </td>
+        <td> {{ exceptionRuleLibrary.sub_object_type }} </td>
+      </tr>
+      <tr>
+        <td>Object Name Variable: </td>
+        <td> {{ exceptionRuleLibrary.object_name_variable }} </td>
+      </tr>
+      <tr>
+        <td>Object Name Dynamic String </td>
+        <td> {{ exceptionRuleLibrary.object_name_dynamic_string }} </td>
+      </tr>
+    </table>
+    <br>
+    <button (click)="back()" class="btn btn-primary">
+      <clr-icon shape="caret left"></clr-icon>Back
+    </button>
+  </div>

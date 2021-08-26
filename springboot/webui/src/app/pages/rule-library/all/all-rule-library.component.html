@@ -1,0 +1,115 @@
+<div class="grid-pg  pad-16">
+  <h3><b>RULE LIBRARY GRID VIEW</b>
+    <button id="add" class="btn btn-primary" (click)="goToAdd()">
+      <clr-icon shape="plus"></clr-icon>ADD
+    </button>
+  </h3>
+  <button id="exception" class="btn btn-primary" (click)="goToExceptionRule()">EXCEPTION RULE LIBRARY</button>
+  <br>
+   <!-- COPY RULES -->
+   <section class="form-block" style="margin-top:32px">
+    <form [formGroup]="copyRuleForm" (ngSubmit)="onSubmit()">
+      <table>
+        <!-- copy from -->
+        <tr>
+          <td>
+            <label for="from_tech_stack">From Technology Stack</label>
+            <select id="from_tech_stack" formControlName="from_tech_stack" selected="null" class="clr-dropdown">
+              <option value="null">Choose Technology</option>
+              <option *ngFor="let ts of tech_stacks" [value]="ts">{{ ts }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <label for="from_object_type">From Object Type</label>
+            <select id="from_object_type" formControlName="from_object_type" selected="null" class="clr-dropdown">
+              <option value="null">Choose Object Type</option>
+              <option *ngFor="let ot of object_types" [value]="ot">{{ ot | uppercase }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <label for="from_sub_object_type">From Sub Object Type</label>
+            <select id="from_sub_object_type" formControlName="from_sub_object_type" selected="null" class="clr-dropdown">
+              <option value="null">Choose Sub Object Type</option>
+              <option *ngFor="let sot of sub_object_types" [value]="sot">{{ sot | uppercase }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <!-- copy to -->
+        <tr>
+          <td>
+            <label for="to_tech_stack">To Technology Stack</label>
+            <select id="to_tech_stack" formControlName="to_tech_stack" selected="null" class="clr-dropdown">
+              <option value="null">Choose Technology</option>
+              <option *ngFor="let ts of tech_stacks" [value]="ts">{{ ts }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <label for="to_object_type">To Object Type</label>
+            <select id="to_object_type" formControlName="to_object_type" selected="null" class="clr-dropdown">
+              <option value="null">Choose Object Type</option>
+              <option *ngFor="let ot of object_types" [value]="ot">{{ ot | uppercase }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <label for="to_sub_object_type">To Sub Object Type</label>
+            <select id="to_sub_object_type" formControlName="to_sub_object_type" selected="null" class="clr-dropdown">
+              <option value="null">Choose Sub Object Type</option>
+              <option *ngFor="let sot of sub_object_types" [value]="sot">{{ sot | uppercase }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <button id="submit" type="submit" class="btn btn-primary" [disabled]="!copyRuleForm.valid">COPY</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </section>
+
+  <div class="clr-row">
+    <div class="clr-col-lg-12">
+      <div style="width:1140px">
+        <div class="s-info-bar">
+          <!-- FILTER BUTTON-->
+          <input type="text" style="padding:8px;margin:15px auto;width:30%;"
+            placeholder="Type to filter the name column..." (keyup)="doFilter($event)" />
+          <div style="flex:1"></div>
+          <div *ngIf="isLoading" class="spinner spinner-md" style="margin:0 10px;">Loading...</div>
+        </div>
+        
+        <ngx-datatable 
+          #table 
+          style='height:450px; width:100%;' 
+          [rows]="rows" 
+          [columns]="columns"
+          [columnMode]="'standard'" 
+          [headerHeight]="45" 
+          [footerHeight]="45" 
+          [rowHeight]="36" 
+          [scrollbarV]="true">
+          <ngx-datatable-column name="Actions" sortable="false">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <a (click)="goToReadOnly(row.id)"><clr-icon shape="eye" class="is-info"></clr-icon></a>
+                <a (click)="goToEdit(row.id)"><clr-icon shape="edit" class="is-error"></clr-icon></a>
+                </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column *ngFor="let col of columns" [name]="col.name" [prop]="col.prop" [width]="col.width" >
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <ng-template #getById let-row="row" let-value="value" let-i="index">
+  <a (click)="goToReadOnly(value)" attr.data-itemid="{{value}}">
+    <clr-icon shape="eye" class="is-info"></clr-icon>
+  </a>
+  <a (click)="goToEdit(value)" attr.data-itemid="{{value}}">
+    <clr-icon shape="edit" class="is-error"></clr-icon>
+  </a>
+</ng-template> -->
